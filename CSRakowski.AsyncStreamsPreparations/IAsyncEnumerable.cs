@@ -16,7 +16,7 @@ namespace System.Collections.Generic
 
     public interface IAsyncEnumerator<out T> : IAsyncDisposable
     {
-        Task<bool> MoveNextAsync();
+        ValueTask<bool> MoveNextAsync();
         T Current { get; }
     }
 }

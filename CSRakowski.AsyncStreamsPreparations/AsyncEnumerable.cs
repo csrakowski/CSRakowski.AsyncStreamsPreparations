@@ -39,18 +39,18 @@ namespace CSRakowski.AsyncStreamsPreparations
             _enumerator = enumerator;
         }
 
-        public Task<bool> MoveNextAsync() =>
-            Task.FromResult(_enumerator.MoveNext());
+        public ValueTask<bool> MoveNextAsync() =>
+            new ValueTask<bool>(Task.FromResult(_enumerator.MoveNext()));
 
         public T Current => _enumerator.Current;
 
-        public Task DisposeAsync()
+        public ValueTask DisposeAsync()
         {
             _enumerator.Dispose();
 #if NETSTANDARD1_0
-            return Task.FromResult(true);
+            return new ValueTask(Task.FromResult(true));
 #else
-            return Task.CompletedTask;
+            return new ValueTask(Task.CompletedTask);
 #endif
         }
     }
