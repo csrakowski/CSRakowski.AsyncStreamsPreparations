@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 
-
 namespace System
 {
     public interface IAsyncDisposable
