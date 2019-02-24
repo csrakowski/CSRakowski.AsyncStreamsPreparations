@@ -18,6 +18,9 @@
     <Version>1.1.0</Version>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0' or '$(TargetFramework)' == 'netstandard2.1'">
+    <DefineConstants>$(DefineConstants);HAS_ASYNCENUMERABLE</DefineConstants>
+  </PropertyGroup>
   <PropertyGroup>
     <DebugSymbols>true</DebugSymbols>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\CSRakowski.AsyncStreamsPreparations.xml</DocumentationFile>

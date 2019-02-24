@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if !HAS_ASYNCENUMERABLE
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,3 +17,10 @@ namespace System
         ValueTask DisposeAsync();
     }
 }
+
+#else
+using System.Runtime.CompilerServices;
+
+[assembly: TypeForwardedTo(typeof(System.IAsyncDisposable))]
+
+#endif
