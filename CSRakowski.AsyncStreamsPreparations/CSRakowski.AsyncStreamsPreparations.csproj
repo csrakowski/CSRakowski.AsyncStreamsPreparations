@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Christiaan Rakowski</Authors>
     <Description>Quick helper library containing interfaces and classes to help you prepare for the C# 8 Async Streams feature.</Description>
-    <Copyright>Christiaan Rakowski - 2018</Copyright>
+    <Copyright>Christiaan Rakowski - 2019</Copyright>
     <PackageProjectUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</RepositoryUrl>

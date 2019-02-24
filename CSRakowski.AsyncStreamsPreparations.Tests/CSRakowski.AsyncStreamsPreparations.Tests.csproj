@@ -6,7 +6,7 @@
     <IsPackable>false</IsPackable>
 
     <Authors>Christiaan Rakowski</Authors>
-    <Copyright>Christiaan Rakowski - 2018</Copyright>
+    <Copyright>Christiaan Rakowski - 2019</Copyright>
     <LangVersion>latest</LangVersion>
     <Version>1.1.0</Version>
     <RootNamespace>CSRakowski.AsyncStreamsPreparations.Tests</RootNamespace>
