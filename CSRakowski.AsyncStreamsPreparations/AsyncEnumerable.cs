@@ -29,7 +29,7 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// <summary>
     /// Sample implementation of the <see cref="IAsyncEnumerable{T}"/> interface, simply wrapping an <see cref="IEnumerable{T}"/>
     /// </summary>
-    /// <typeparam name="T">The element type</typeparam>
+    /// <typeparam name="T">The type of values to enumerate.</typeparam>
     public class AsyncEnumerable<T> : IAsyncEnumerable<T>
     {
         private readonly IEnumerable<T> _enumerable;
@@ -40,10 +40,10 @@ namespace CSRakowski.AsyncStreamsPreparations
         }
 
         /// <summary>
-        /// Gets an asynchronous enumerator over the sequence.
+        /// Returns an enumerator that iterates asynchronously through the collection.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token used to cancel the enumeration.</param>
-        /// <returns>Enumerator for asynchronous enumeration over the sequence.</returns>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> that may be used to cancel the asynchronous iteration.</param>
+        /// <returns>An enumerator that can be used to iterate asynchronously through the collection.</returns>
         public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default) =>
             new AsyncEnumerator<T>(_enumerable.GetEnumerator());
     }
@@ -51,7 +51,7 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// <summary>
     /// Sample implementation of the <see cref="IAsyncEnumerator{T}"/> interface, allowing elements to be retrieved asynchronously.
     /// </summary>
-    /// <typeparam name="T">Element type.</typeparam>
+    /// <typeparam name="T">The type of objects to enumerate.</typeparam>
     public struct AsyncEnumerator<T> : IAsyncEnumerator<T>
     {
         private readonly IEnumerator<T> _enumerator;
@@ -62,26 +62,25 @@ namespace CSRakowski.AsyncStreamsPreparations
         }
 
         /// <summary>
-        /// Advances the enumerator to the next element in the sequence, returning the result asynchronously.
+        /// Advances the enumerator asynchronously to the next element of the collection.
         /// </summary>
         /// <returns>
-        /// Task containing the result of the operation: true if the enumerator was successfully advanced
-        /// to the next element; false if the enumerator has passed the end of the sequence.
+        /// A <see cref="ValueTask{Boolean}"/> that will complete with a result of <c>true</c> if the enumerator
+        /// was successfully advanced to the next element, or <c>false</c> if the enumerator has passed the end
+        /// of the collection.
         /// </returns>
         public ValueTask<bool> MoveNextAsync() =>
             new ValueTask<bool>(Task.FromResult(_enumerator.MoveNext()));
 
         /// <summary>
-        /// Gets the current element in the iteration.
+        /// Gets the element in the collection at the current position of the enumerator.
         /// </summary>
         public T Current => _enumerator.Current;
 
         /// <summary>
-        /// Implementation of the <see cref="IAsyncDisposable"/> interface method
+        /// Performs application-defined tasks associated with freeing, releasing, or
+        /// resetting unmanaged resources asynchronously.
         /// </summary>
-        /// <returns>
-        /// Task containing the result of the operation
-        /// </returns>
         public ValueTask DisposeAsync()
         {
             _enumerator.Dispose();

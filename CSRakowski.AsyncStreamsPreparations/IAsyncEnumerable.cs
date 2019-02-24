@@ -5,39 +5,48 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
+    // Source: https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Collections/Generic/IAsyncEnumerable.cs
+
+    // Licensed to the .NET Foundation under one or more agreements.
+    // The .NET Foundation licenses this file to you under the MIT license.
+    // See the LICENSE file in the project root for more information.
+
     /// <summary>
-    /// Asynchronous version of the <see cref="IEnumerable{T}"/> interface, allowing elements of the enumerable sequence to be retrieved asynchronously.
+    /// Exposes an enumerator that provides asynchronous iteration over values of a specified type.
     /// </summary>
-    /// <typeparam name="T">Element type.</typeparam>
+    /// <typeparam name="T">The type of values to enumerate.</typeparam>
     public interface IAsyncEnumerable<out T>
     {
         /// <summary>
-        /// Gets an asynchronous enumerator over the sequence.
+        /// Returns an enumerator that iterates asynchronously through the collection.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token used to cancel the enumeration.</param>
-        /// <returns>Enumerator for asynchronous enumeration over the sequence.</returns>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> that may be used to cancel the asynchronous iteration.</param>
+        /// <returns>An enumerator that can be used to iterate asynchronously through the collection.</returns>
         IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default);
     }
 
+    // Source: https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Collections/Generic/IAsyncEnumerator.cs
+
     /// <summary>
-    /// Asynchronous version of the <see cref="IEnumerator{T}"/> interface, allowing elements to be retrieved asynchronously.
+    /// Supports a simple asynchronous iteration over a generic collection.
     /// </summary>
-    /// <typeparam name="T">Element type.</typeparam>
+    /// <typeparam name="T">The type of objects to enumerate.</typeparam>
     public interface IAsyncEnumerator<out T> : IAsyncDisposable
     {
         /// <summary>
-        /// Gets the current element in the iteration.
-        /// </summary>
-        T Current { get; }
-
-        /// <summary>
-        /// Advances the enumerator to the next element in the sequence, returning the result asynchronously.
+        /// Advances the enumerator asynchronously to the next element of the collection.
         /// </summary>
         /// <returns>
-        /// Task containing the result of the operation: true if the enumerator was successfully advanced
-        /// to the next element; false if the enumerator has passed the end of the sequence.
+        /// A <see cref="ValueTask{Boolean}"/> that will complete with a result of <c>true</c> if the enumerator
+        /// was successfully advanced to the next element, or <c>false</c> if the enumerator has passed the end
+        /// of the collection.
         /// </returns>
         ValueTask<bool> MoveNextAsync();
+
+        /// <summary>
+        /// Gets the element in the collection at the current position of the enumerator.
+        /// </summary>
+        T Current { get; }
     }
 }
 

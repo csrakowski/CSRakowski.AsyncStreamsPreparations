@@ -6,4 +6,4 @@ Available on NuGet: [![NuGet](https://img.shields.io/nuget/v/CSRakowski.AsyncStr
 
 Contained in this library are the interfaces: `IAsyncDisposable`, `IAsyncEnumerable<T>`, `IAsyncEnumerator<T>` and an `AsyncEnumerable<T>` helper class that simply wraps a regular `IEnumerable<T>`.
 
-All interface definitions were taken from the [Async Streams](https://github.com/dotnet/csharplang/blob/master/proposals/async-streams.md) proposal on 2018-11-11
+All interface definitions were taken from the [CoreClr](https://github.com/dotnet/coreclr) and [CoreFX](https://github.com/dotnet/corefx) GitHub repositories on 2019-02-24
