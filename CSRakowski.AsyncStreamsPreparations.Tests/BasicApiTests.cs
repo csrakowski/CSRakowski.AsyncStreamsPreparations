@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSRakowski.AsyncStreamsPreparations.Tests
@@ -41,7 +42,7 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
             const long expectedSum = 5050;
 
             long summedTotal = 0;
-            await foreach (var current in Sample(1, 100))
+            await foreach (var current in Sample(1, 100).WithCancellation(CancellationToken.None).ConfigureAwait(false))
                 summedTotal += current;
 
             Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
