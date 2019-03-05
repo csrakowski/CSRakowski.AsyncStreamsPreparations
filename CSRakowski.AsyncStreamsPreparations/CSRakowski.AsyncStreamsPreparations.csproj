@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;netstandard2.0;netstandard1.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard1.0;netstandard2.0;netcoreapp3.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Christiaan Rakowski</Authors>
     <Description>Quick helper library containing interfaces and classes to help you prepare for the C# 8 Async Streams feature.</Description>
@@ -16,14 +16,8 @@
     <AssemblyOriginatorKeyFile>CSRakowski.AsyncStreamsPreparations.snk</AssemblyOriginatorKeyFile>
     <PackageReleaseNotes>* Added typeforwards for platforms that contain the actual implementations.</PackageReleaseNotes>
     <Version>1.3.0</Version>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0' or '$(TargetFramework)' == 'netstandard2.1'">
-    <DefineConstants>$(DefineConstants);HAS_ASYNCENUMERABLE</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup>
     <DebugSymbols>true</DebugSymbols>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\CSRakowski.AsyncStreamsPreparations.xml</DocumentationFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -36,8 +30,19 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0' OR '$(TargetFramework)' == 'netstandard2.1'">
+    <Compile Remove="*" />
+    <Compile Include="AsyncEnumerable.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.0'">
+    <Compile Remove="AsyncIteratorMethodBuilder.cs" />
+    <Compile Remove="ManualResetValueTaskSourceCore.cs" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.2" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-*" PrivateAssets="All" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.*" Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netstandard2.1'" />
   </ItemGroup>
 
 </Project>

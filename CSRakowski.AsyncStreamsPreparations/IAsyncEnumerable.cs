@@ -1,8 +1,7 @@
-﻿#if !HAS_ASYNCENUMERABLE
-
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
+// ReSharper disable once CheckNamespace
 namespace System.Collections.Generic
 {
     // Source: https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Collections/Generic/IAsyncEnumerable.cs
@@ -49,11 +48,3 @@ namespace System.Collections.Generic
         T Current { get; }
     }
 }
-
-#else
-using System.Runtime.CompilerServices;
-
-[assembly: TypeForwardedTo(typeof(System.Collections.Generic.IAsyncEnumerable<>))]
-[assembly: TypeForwardedTo(typeof(System.Collections.Generic.IAsyncEnumerator<>))]
-
-#endif

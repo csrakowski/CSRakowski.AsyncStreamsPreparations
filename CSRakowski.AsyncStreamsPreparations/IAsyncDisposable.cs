@@ -1,7 +1,6 @@
-﻿#if !HAS_ASYNCENUMERABLE
+﻿using System.Threading.Tasks;
 
-using System.Threading.Tasks;
-
+// ReSharper disable once CheckNamespace
 namespace System
 {
     // Source: https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/IAsyncDisposable.cs
@@ -22,10 +21,3 @@ namespace System
         ValueTask DisposeAsync();
     }
 }
-
-#else
-using System.Runtime.CompilerServices;
-
-[assembly: TypeForwardedTo(typeof(System.IAsyncDisposable))]
-
-#endif

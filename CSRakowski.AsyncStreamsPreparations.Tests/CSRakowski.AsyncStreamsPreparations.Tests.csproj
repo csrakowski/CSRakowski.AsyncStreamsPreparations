@@ -7,7 +7,7 @@
 
     <Authors>Christiaan Rakowski</Authors>
     <Copyright>Christiaan Rakowski - 2018-2019</Copyright>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <Version>1.1.0</Version>
     <RootNamespace>CSRakowski.AsyncStreamsPreparations.Tests</RootNamespace>
     <AssemblyName>CSRakowski.AsyncStreamsPreparations.Tests</AssemblyName>

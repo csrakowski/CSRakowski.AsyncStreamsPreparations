@@ -34,5 +34,27 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
 
             Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
         }
+#if !NETCOREAPP1_1
+        [Test]
+        public async Task SimpleAsyncStreamTest()
+        {
+            const long expectedSum = 5050;
+
+            long summedTotal = 0;
+            await foreach (var current in Sample(1, 100))
+                summedTotal += current;
+
+            Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
+        }
+
+        private async IAsyncEnumerable<int> Sample(int start, int count)
+        {
+            foreach (var item in Enumerable.Range(1, 100))
+            {
+                await Task.Yield();
+               yield return item;
+            }
+        }
+#endif
     }
 }
