@@ -10,27 +10,10 @@ using System.Runtime.CompilerServices;
 namespace CSRakowski.AsyncStreamsPreparations
 {
     /// <summary>
-    /// Helper class with extension methods
-    /// </summary>
-    public static class AsyncEnumerableEx
-    {
-        /// <summary>
-        /// Wraps the <paramref name="enumerable"/> in an <see cref="AsyncEnumerable{T}"/>
-        /// </summary>
-        /// <typeparam name="T">The element type</typeparam>
-        /// <param name="enumerable">The collection to wrap</param>
-        /// <returns>The wrapped collection</returns>
-        public static IAsyncEnumerable<T> AsAsyncEnumerable<T>(this IEnumerable<T> enumerable)
-        {
-            return new AsyncEnumerable<T>(enumerable);
-        }
-    }
-
-    /// <summary>
     /// Sample implementation of the <see cref="IAsyncEnumerable{T}"/> interface, simply wrapping an <see cref="IEnumerable{T}"/>
     /// </summary>
     /// <typeparam name="T">The type of values to enumerate.</typeparam>
-    public class AsyncEnumerable<T> : IAsyncEnumerable<T>
+    internal class AsyncEnumerable<T> : IAsyncEnumerable<T>
     {
         private readonly IEnumerable<T> _enumerable;
 
@@ -52,7 +35,7 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// Sample implementation of the <see cref="IAsyncEnumerator{T}"/> interface, allowing elements to be retrieved asynchronously.
     /// </summary>
     /// <typeparam name="T">The type of objects to enumerate.</typeparam>
-    public struct AsyncEnumerator<T> : IAsyncEnumerator<T>
+    internal struct AsyncEnumerator<T> : IAsyncEnumerator<T>
     {
         private readonly IEnumerator<T> _enumerator;
 
@@ -84,6 +67,7 @@ namespace CSRakowski.AsyncStreamsPreparations
         public ValueTask DisposeAsync()
         {
             _enumerator.Dispose();
+
 #if NETSTANDARD1_0
             return new ValueTask(Task.FromResult(true));
 #else
