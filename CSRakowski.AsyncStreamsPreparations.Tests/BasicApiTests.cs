@@ -34,5 +34,22 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
 
             Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
         }
+
+        [Test]
+        public async Task AsyncForeachLogic()
+        {
+            const long expectedSum = 5050;
+
+            IAsyncEnumerable<int> enumerable = Enumerable.Range(1, 100).AsAsyncEnumerable();
+
+            long summedTotal = 0;
+
+            await foreach (var current in enumerable)
+            {
+                summedTotal += current;
+            }
+
+            Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
+        }
     }
 }

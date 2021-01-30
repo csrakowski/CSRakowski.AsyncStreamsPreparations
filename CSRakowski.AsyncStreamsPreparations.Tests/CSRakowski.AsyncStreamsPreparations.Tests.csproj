@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net45;netcoreapp5.0;netcoreapp3.1;netcoreapp2.1;</TargetFrameworks>
+    <TargetFrameworks>net472;net45;net5.0;netcoreapp3.1;</TargetFrameworks>
 
     <IsPackable>false</IsPackable>
 
     <Authors>Christiaan Rakowski</Authors>
-    <Copyright>Christiaan Rakowski - 2018-2020</Copyright>
+    <Copyright>Christiaan Rakowski - 2018-2021</Copyright>
     <LangVersion>latest</LangVersion>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <RootNamespace>CSRakowski.AsyncStreamsPreparations.Tests</RootNamespace>
     <AssemblyName>CSRakowski.AsyncStreamsPreparations.Tests</AssemblyName>
 
