@@ -16,7 +16,7 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CSRakowski.AsyncStreamsPreparations.snk</AssemblyOriginatorKeyFile>
     <PackageReleaseNotes>* Updated target frameworks.</PackageReleaseNotes>
-    <Version>1.3.4</Version>
+    <Version>1.3.5</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net50' or '$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'netcoreapp3.0' or '$(TargetFramework)' == 'netstandard2.1'">
