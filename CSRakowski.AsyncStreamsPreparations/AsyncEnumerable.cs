@@ -68,7 +68,7 @@ namespace CSRakowski.AsyncStreamsPreparations
         {
             _enumerator.Dispose();
 
-#if NETSTANDARD1_0
+#if NETSTANDARD1_1
             return new ValueTask(Task.FromResult(true));
 #else
             return new ValueTask(Task.CompletedTask);
