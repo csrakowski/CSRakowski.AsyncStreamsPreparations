@@ -21,7 +21,7 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
             long summedTotal = 0;
             try
             {
-                while (await enumerator.MoveNextAsync())
+                while (await enumerator.MoveNextAsync().ConfigureAwait(false))
                 {
                     int current = enumerator.Current;
                     summedTotal += current;
@@ -29,7 +29,7 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
             }
             finally
             {
-                await enumerator.DisposeAsync();
+                await enumerator.DisposeAsync().ConfigureAwait(false);
             }
 
             Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);

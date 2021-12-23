@@ -53,7 +53,7 @@ namespace CSRakowski.AsyncStreamsPreparations
         /// of the collection.
         /// </returns>
         public ValueTask<bool> MoveNextAsync() =>
-            new ValueTask<bool>(Task.FromResult(_enumerator.MoveNext()));
+            new ValueTask<bool>(_enumerator.MoveNext());
 
         /// <summary>
         /// Gets the element in the collection at the current position of the enumerator.
@@ -70,6 +70,8 @@ namespace CSRakowski.AsyncStreamsPreparations
 
 #if NETSTANDARD1_1
             return new ValueTask(Task.FromResult(true));
+#elif NET5_0_OR_GREATER
+            return ValueTask.CompletedTask;
 #else
             return new ValueTask(Task.CompletedTask);
 #endif

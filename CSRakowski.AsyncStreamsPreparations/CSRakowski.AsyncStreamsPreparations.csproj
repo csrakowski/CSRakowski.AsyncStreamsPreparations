@@ -15,8 +15,8 @@
     <LangVersion>latest</LangVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CSRakowski.AsyncStreamsPreparations.snk</AssemblyOriginatorKeyFile>
-    <PackageReleaseNotes>* Dropped netcoreapp3.0.</PackageReleaseNotes>
-    <Version>1.4.0</Version>
+    <PackageReleaseNotes>* ValueTask usage cleanups.</PackageReleaseNotes>
+    <Version>1.4.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net50' or '$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'netstandard2.1'">
