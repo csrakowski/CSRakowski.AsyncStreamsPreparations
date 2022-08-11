@@ -9,20 +9,6 @@
     <AssemblyName>CSRakowski.AsyncStreamsPreparations.Tests</AssemblyName>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="nunit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1">
