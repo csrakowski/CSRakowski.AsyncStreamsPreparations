@@ -12,7 +12,7 @@
     <PackageTags>C# 8, AsyncStreams, IAsyncEnumerable, IAsyncDisposable</PackageTags>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CSRakowski.AsyncStreamsPreparations.snk</AssemblyOriginatorKeyFile>
-    <PackageReleaseNotes>* ValueTask usage cleanups.</PackageReleaseNotes>
+    <PackageReleaseNotes>* Removed netcoreapp3.1 from target frameworks.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net50' or '$(TargetFramework)' == 'netstandard2.1'">
