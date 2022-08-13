@@ -52,4 +52,4 @@ jobs:
       with:
         name: CSRakowski.AsyncStreamsPreparations-nupkg
         path: |
-          CSRakowski.AsyncStreamsPreparations/bin/Release/CSRakowski.AsyncStreamsPreparations.*.nupkg
+          bin/Release/CSRakowski.AsyncStreamsPreparations.*.nupkg
