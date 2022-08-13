@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net50;netcoreapp3.1;netstandard2.1;netstandard2.0;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>net50;netstandard2.1;netstandard2.0;netstandard1.1</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Quick helper library containing interfaces and classes to help you prepare for the C# 8 Async Streams feature.</Description>
     <PackageProjectUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</PackageProjectUrl>
@@ -15,7 +15,7 @@
     <PackageReleaseNotes>* ValueTask usage cleanups.</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net50' or '$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'netstandard2.1'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net50' or '$(TargetFramework)' == 'netstandard2.1'">
     <DefineConstants>$(DefineConstants);HAS_ASYNCENUMERABLE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
