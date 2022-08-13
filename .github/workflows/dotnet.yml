@@ -46,3 +46,10 @@ jobs:
     - name: Build and Run unit tests
       run: |
         dotnet test --no-restore --configuration Release --verbosity normal --framework=${{ matrix.framework }}
+
+    - name: Publish nupkg
+      uses: actions/upload-artifact@v2
+      with:
+        name: CSRakowski.AsyncStreamsPreparations-nupkg
+        path: |
+        CSRakowski.AsyncStreamsPreparations/bin/Release/CSRakowski.AsyncStreamsPreparations.*.nupkg
