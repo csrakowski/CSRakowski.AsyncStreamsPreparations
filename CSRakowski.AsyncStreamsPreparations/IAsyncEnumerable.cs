@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    // Source: https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Collections/Generic/IAsyncEnumerable.cs
+    // Source: https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/IAsyncEnumerable.cs
 
     // Licensed to the .NET Foundation under one or more agreements.
     // The .NET Foundation licenses this file to you under the MIT license.
-    // See the LICENSE file in the project root for more information.
+    // See the LICENSE file in the project root for more information: https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
 
     /// <summary>
     /// Exposes an enumerator that provides asynchronous iteration over values of a specified type.
@@ -25,7 +25,7 @@ namespace System.Collections.Generic
         IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default);
     }
 
-    // Source: https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Collections/Generic/IAsyncEnumerator.cs
+    // Source: https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/IAsyncEnumerator.cs
 
     /// <summary>
     /// Supports a simple asynchronous iteration over a generic collection.
