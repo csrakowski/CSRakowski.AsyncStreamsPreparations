@@ -5,8 +5,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Quick helper library containing interfaces and classes to help you prepare for the C# 8 Async Streams feature.</Description>
     <PackageProjectUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</PackageProjectUrl>
-    <!--<PackageLicenseUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations/blob/master/LICENSE</PackageLicenseUrl>-->
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>C# 8, AsyncStreams, IAsyncEnumerable, IAsyncDisposable</PackageTags>
@@ -32,10 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="..\LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
