@@ -35,7 +35,7 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// Sample implementation of the <see cref="IAsyncEnumerator{T}"/> interface, allowing elements to be retrieved asynchronously.
     /// </summary>
     /// <typeparam name="T">The type of objects to enumerate.</typeparam>
-    internal struct AsyncEnumerator<T> : IAsyncEnumerator<T>
+    internal readonly struct AsyncEnumerator<T> : IAsyncEnumerator<T>
     {
         private readonly IEnumerator<T> _enumerator;
 
