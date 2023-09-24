@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace CSRakowski.AsyncStreamsPreparations.Tests
 {
-    [TestFixture]
     public class BasicApiTests
     {
-        [Test]
+        [Fact]
         public async Task SimpleForeachLogic()
         {
             const long expectedSum = 5050;
@@ -21,7 +20,7 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
             long summedTotal = 0;
             try
             {
-                while (await enumerator.MoveNextAsync().ConfigureAwait(false))
+                while (await enumerator.MoveNextAsync())
                 {
                     int current = enumerator.Current;
                     summedTotal += current;
@@ -29,13 +28,13 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
             }
             finally
             {
-                await enumerator.DisposeAsync().ConfigureAwait(false);
+                await enumerator.DisposeAsync();
             }
 
-            Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
+            Assert.Equal(expectedSum, summedTotal);
         }
 
-        [Test]
+        [Fact]
         public async Task AsyncForeachLogic()
         {
             const long expectedSum = 5050;
@@ -49,7 +48,7 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
                 summedTotal += current;
             }
 
-            Assert.That(expectedSum == summedTotal, "Summed total should be {0}, but was found to be {1}", expectedSum, summedTotal);
+            Assert.Equal(expectedSum, summedTotal);
         }
     }
 }
