@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net48;net472;net452;net50;net60;netcoreapp3.1</TargetFrameworks>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' or '$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'net50'">
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
