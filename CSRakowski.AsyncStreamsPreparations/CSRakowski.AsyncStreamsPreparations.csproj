@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net50;netstandard2.1;netstandard2.0;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;netstandard1.1</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Quick helper library containing interfaces and classes to help you prepare for the C# 8 Async Streams feature.</Description>
     <PackageProjectUrl>https://github.com/csrakowski/CSRakowski.AsyncStreamsPreparations</PackageProjectUrl>
@@ -12,7 +12,7 @@
     <PackageTags>C# 8, AsyncStreams, IAsyncEnumerable, IAsyncDisposable</PackageTags>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CSRakowski.AsyncStreamsPreparations.snk</AssemblyOriginatorKeyFile>
-    <PackageReleaseNotes>* First attempt at enabling SourceLink.</PackageReleaseNotes>
+    <PackageReleaseNotes>* Updated TargetFrameworks to remove old unsupported ones.</PackageReleaseNotes>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
