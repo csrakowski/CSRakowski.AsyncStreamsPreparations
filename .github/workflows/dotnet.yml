@@ -11,26 +11,26 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest]
-        framework: ['netcoreapp3.1', 'net50', 'net60']
+        framework: ['net60', 'net80', 'net90']
     steps:
 
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup .Net 3.1
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '3.1.x' # SDK Version to use.
-
-    - name: Setup .Net 5.0
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '5.0.x' # SDK Version to use.
-
     - name: Setup .Net 6.0
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x' # SDK Version to use.
+
+    - name: Setup .Net 8.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' # SDK Version to use.
+
+    - name: Setup .Net 9.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x' # SDK Version to use.
 
     - name: Dotnet info
       run: |
