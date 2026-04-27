@@ -5,8 +5,6 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-	<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-	<OutputType>Exe</OutputType>
 
     <RootNamespace>CSRakowski.AsyncStreamsPreparations.Tests</RootNamespace>
     <AssemblyName>CSRakowski.AsyncStreamsPreparations.Tests</AssemblyName>
@@ -14,8 +12,14 @@
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net60'">
 	<SuppressTfmSupportBuildErrors>true</SuppressTfmSupportBuildErrors>
+	<OutputType>Library</OutputType>
   </PropertyGroup>
-	
+
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net60'">
+	<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+	<OutputType>Exe</OutputType>
+  </PropertyGroup>
+
   <ItemGroup>
 	<PackageReference Include="coverlet.collector" Version="10.0.0">
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -34,7 +38,7 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net60'">
 	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-	<PackageReference Include="xunit.v3" Version="1.1.0" />
+	<PackageReference Include="xunit" Version="2.9.3" />
 	<PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  <PrivateAssets>all</PrivateAssets>
