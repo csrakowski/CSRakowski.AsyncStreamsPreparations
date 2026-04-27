@@ -15,20 +15,20 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Setup .Net 6.0
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '6.0.x' # SDK Version to use.
 
     - name: Setup .Net 8.0
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '8.0.x' # SDK Version to use.
 
     - name: Setup .Net 9.0
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '9.0.x' # SDK Version to use.
 
@@ -51,7 +51,7 @@ jobs:
         dotnet test --no-restore --configuration Release --verbosity normal --framework=${{ matrix.framework }} --logger trx --results-directory "TestResults-${{ matrix.os }}-${{ matrix.framework }}"
 
     - name: Upload dotnet test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: dotnet-results-${{ matrix.os }}-${{ matrix.framework }}
         path: TestResults-${{ matrix.os }}-${{ matrix.framework }}
