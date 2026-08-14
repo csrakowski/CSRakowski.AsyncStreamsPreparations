@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime;
-using System.Runtime.CompilerServices;
 
 namespace CSRakowski.AsyncStreamsPreparations
 {
@@ -14,6 +14,9 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// </summary>
     /// <typeparam name="T">The type of values to enumerate.</typeparam>
     internal class AsyncEnumerable<T> : IAsyncEnumerable<T>
+#if NET
+        where T : allows ref struct
+#endif
     {
         private readonly IEnumerable<T> _enumerable;
 
@@ -36,6 +39,9 @@ namespace CSRakowski.AsyncStreamsPreparations
     /// </summary>
     /// <typeparam name="T">The type of objects to enumerate.</typeparam>
     internal readonly struct AsyncEnumerator<T> : IAsyncEnumerator<T>
+#if NET
+        where T : allows ref struct
+#endif
     {
         private readonly IEnumerator<T> _enumerator;
 

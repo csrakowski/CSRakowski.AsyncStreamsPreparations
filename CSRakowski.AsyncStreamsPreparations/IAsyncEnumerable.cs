@@ -16,6 +16,9 @@ namespace System.Collections.Generic
     /// </summary>
     /// <typeparam name="T">The type of values to enumerate.</typeparam>
     public interface IAsyncEnumerable<out T>
+#if NET
+        where T : allows ref struct
+#endif
     {
         /// <summary>
         /// Returns an enumerator that iterates asynchronously through the collection.
@@ -32,6 +35,9 @@ namespace System.Collections.Generic
     /// </summary>
     /// <typeparam name="T">The type of objects to enumerate.</typeparam>
     public interface IAsyncEnumerator<out T> : IAsyncDisposable
+#if NET
+         where T : allows ref struct
+#endif
     {
         /// <summary>
         /// Advances the enumerator asynchronously to the next element of the collection.
