@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSRakowski.AsyncStreamsPreparations.Tests
@@ -13,9 +13,14 @@ namespace CSRakowski.AsyncStreamsPreparations.Tests
         public async Task SimpleForeachLogic()
         {
             const long expectedSum = 5050;
+#if NET6_0
+            var cancellationToken = CancellationToken.None;
+#else
+            var cancellationToken = TestContext.Current.CancellationToken;
+#endif
 
             IAsyncEnumerable<int> enumerable = Enumerable.Range(1, 100).AsAsyncEnumerable();
-            IAsyncEnumerator<int> enumerator = enumerable.GetAsyncEnumerator();
+            IAsyncEnumerator<int> enumerator = enumerable.GetAsyncEnumerator(cancellationToken);
 
             long summedTotal = 0;
             try
